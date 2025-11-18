@@ -1,0 +1,193 @@
+[gd_scene load_steps=22 format=3 uid="uid://crk8ghmjkec3d"]
+
+[ext_resource type="Texture2D" uid="uid://csw5dq7yyceky" path="res://textures/main.png" id="1_8ku75"]
+[ext_resource type="Texture2D" uid="uid://bpf22qpuo12n0" path="res://textures/dver.png" id="2_sm75q"]
+[ext_resource type="Script" uid="uid://dujum2hn03raj" path="res://scripts/dver.gd" id="3_gjky6"]
+[ext_resource type="AudioStream" uid="uid://77meaccnh5bf" path="res://sounds/sound/9199b08566cf454.mp3" id="4_q2t83"]
+[ext_resource type="Texture2D" uid="uid://b56q61hmmf4hl" path="res://textures/resgerka.png" id="5_db7x4"]
+[ext_resource type="Script" uid="uid://3acnudulgf10" path="res://scripts/reshetka.gd" id="6_6oh0m"]
+[ext_resource type="AudioStream" uid="uid://caxri0vbqgp8d" path="res://sounds/sound/f13b9f382959d33.mp3" id="7_8l4s2"]
+[ext_resource type="Script" uid="uid://dvly1ysj52208" path="res://scripts/cameraMain.gd" id="8_tm6jq"]
+[ext_resource type="Texture2D" uid="uid://cvb1n666ta70q" path="res://radio.png" id="9_sm75q"]
+[ext_resource type="Script" uid="uid://gtasq1peduey" path="res://scense/radio.gd" id="10_gjky6"]
+[ext_resource type="AudioStream" uid="uid://i4u7i2s63as2" path="res://sounds/radio music/Butyrka_-_Vtoryaki_ne_chajj_48655870.mp3" id="11_q2t83"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
+size = Vector2(31.666668, 62.833336)
+
+[sub_resource type="Animation" id="Animation_lquwl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-32, -15)]
+}
+
+[sub_resource type="Animation" id="Animation_7mycd"]
+resource_name = "close"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(3.7321272, 0.6372851, 1.3195081, 1),
+"update": 0,
+"values": [Vector2(-32, -40), Vector2(-32, -15), Vector2(-32, -20), Vector2(-32, -15)]
+}
+
+[sub_resource type="Animation" id="Animation_1bvp3"]
+resource_name = "open"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4666667),
+"transitions": PackedFloat32Array(0.3298771, 1),
+"update": 0,
+"values": [Vector2(-32, -15), Vector2(-32, -40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_272bh"]
+_data = {
+&"RESET": SubResource("Animation_lquwl"),
+&"close": SubResource("Animation_7mycd"),
+&"open": SubResource("Animation_1bvp3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
+size = Vector2(76.666664, 32.333336)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjky6"]
+size = Vector2(29.500004, 15.666666)
+
+[sub_resource type="Animation" id="Animation_db7x4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_q2t83"]
+resource_name = "play"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.1),
+"transitions": PackedFloat32Array(0.42044812, 0.35355338, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(6.2, 5.805), Vector2(6, 6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6oh0m"]
+_data = {
+&"RESET": SubResource("Animation_db7x4"),
+&"play": SubResource("Animation_q2t83")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="фон" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+texture = ExtResource("1_8ku75")
+
+[node name="Dver" type="Sprite2D" parent="фон"]
+texture_filter = 1
+position = Vector2(45.500008, 1.5)
+texture = ExtResource("2_sm75q")
+script = ExtResource("3_gjky6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="фон/Dver"]
+stream = ExtResource("4_q2t83")
+
+[node name="Area2D" type="Area2D" parent="фон/Dver"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="фон/Dver/Area2D"]
+position = Vector2(-1.1444092e-05, 0.083333015)
+shape = SubResource("RectangleShape2D_kek77")
+
+[node name="решётка" type="Sprite2D" parent="фон"]
+show_behind_parent = true
+position = Vector2(-32, -15)
+texture = ExtResource("5_db7x4")
+script = ExtResource("6_6oh0m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="фон/решётка"]
+libraries = {
+&"": SubResource("AnimationLibrary_272bh")
+}
+
+[node name="Area2D" type="Area2D" parent="фон/решётка"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="фон/решётка/Area2D"]
+position = Vector2(-1.1666679, 6.166666)
+shape = SubResource("RectangleShape2D_5vw27")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="фон/решётка"]
+stream = ExtResource("7_8l4s2")
+pitch_scale = 1.07
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("8_tm6jq")
+
+[node name="reshotka" type="Node2D" parent="."]
+
+[node name="Radio" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-569, -62)
+scale = Vector2(6, 6)
+texture = ExtResource("9_sm75q")
+script = ExtResource("10_gjky6")
+
+[node name="Area2D" type="Area2D" parent="Radio"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Radio/Area2D"]
+position = Vector2(-0.08333588, 2.166667)
+shape = SubResource("RectangleShape2D_gjky6")
+
+[node name="BlatnyakFM" type="AudioStreamPlayer2D" parent="Radio"]
+stream = ExtResource("11_q2t83")
+volume_db = -80.0
+pitch_scale = 1.01
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Radio"]
+libraries = {
+&"": SubResource("AnimationLibrary_6oh0m")
+}
+
+[node name="noize" type="AudioStreamPlayer2D" parent="Radio"]
+
+[connection signal="input_event" from="фон/Dver/Area2D" to="фон/Dver" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="фон/решётка/Area2D" to="фон/решётка" method="_on_area_2d_input_event"]
+[connection signal="ready" from="Radio" to="Radio" method="_on_ready"]
+[connection signal="input_event" from="Radio/Area2D" to="Radio" method="click"]
+[connection signal="finished" from="Radio/BlatnyakFM" to="Radio" method="_on_audio_stream_player_2d_finished"]

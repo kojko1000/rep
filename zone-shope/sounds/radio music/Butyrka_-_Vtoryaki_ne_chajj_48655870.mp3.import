@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://i4u7i2s63as2"
+path="res://.godot/imported/Butyrka_-_Vtoryaki_ne_chajj_48655870.mp3-d881737710096ad6a2c9f772c83eed34.mp3str"
+
+[deps]
+
+source_file="res://sounds/radio music/Butyrka_-_Vtoryaki_ne_chajj_48655870.mp3"
+dest_files=["res://.godot/imported/Butyrka_-_Vtoryaki_ne_chajj_48655870.mp3-d881737710096ad6a2c9f772c83eed34.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

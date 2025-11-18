@@ -1,0 +1,161 @@
+[gd_scene load_steps=19 format=3 uid="uid://d1n1kapabvub5"]
+
+[ext_resource type="Script" uid="uid://b1a0jidnrogbh" path="res://scripts/trash.gd" id="1_3qkds"]
+[ext_resource type="Texture2D" uid="uid://bbee06nluqbuw" path="res://textures/trash/trash1/trash 1.png" id="1_m8jqr"]
+[ext_resource type="Texture2D" uid="uid://bymtg6l6k02vw" path="res://textures/trash/trash1/trash 2.png" id="2_3qkds"]
+[ext_resource type="Texture2D" uid="uid://dsmb1b0acmth0" path="res://textures/trash/trash1/trash 3.png" id="3_u70q1"]
+[ext_resource type="Texture2D" uid="uid://bc0rbgl4f70cg" path="res://textures/trash/trash1/trash 4.png" id="4_upi5e"]
+[ext_resource type="Texture2D" uid="uid://b6dntmsktromv" path="res://textures/trash/trash1/trash 5.png" id="5_h43mo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b6mmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m8jqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3qkds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u70q1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_upi5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h43mo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3qkds"]
+
+[sub_resource type="Gradient" id="Gradient_3qkds"]
+colors = PackedColorArray(0.32, 0.18986668, 0.12479999, 1, 0.07, 0.049420003, 0.0259, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u70q1"]
+gradient = SubResource("Gradient_3qkds")
+
+[sub_resource type="Curve" id="Curve_upi5e"]
+_data = [Vector2(0, 1), 0.0, -0.09095771, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_h43mo"]
+curve = SubResource("Curve_upi5e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b6mmj"]
+emission_shape = 1
+emission_sphere_radius = 9.0
+inherit_velocity_ratio = 0.301
+radial_velocity_min = -15.000022
+radial_velocity_max = 14.999977
+gravity = Vector3(0, 15, 0)
+linear_accel_min = 1.5399977
+linear_accel_max = 99.99999
+radial_accel_min = -100.0
+radial_accel_max = 99.99999
+tangential_accel_min = -100.0
+tangential_accel_max = 99.99999
+scale_min = 9.0
+scale_max = 12.0
+scale_curve = SubResource("CurveTexture_h43mo")
+color_ramp = SubResource("GradientTexture1D_u70q1")
+turbulence_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qkds"]
+size = Vector2(45, 35)
+
+[sub_resource type="Animation" id="Animation_3qkds"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_u70q1"]
+resource_name = "start"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:skew")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [0.0, 1.569051]
+}
+
+[sub_resource type="Animation" id="Animation_upi5e"]
+resource_name = "start"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.25881627, 1),
+"update": 0,
+"values": [-1.569051, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h43mo"]
+_data = {
+&"RESET": SubResource("Animation_3qkds"),
+&"end": SubResource("Animation_u70q1"),
+&"start": SubResource("Animation_upi5e")
+}
+
+[node name="trash" type="Node2D"]
+script = ExtResource("1_3qkds")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 25)
+sprite_frames = SubResource("SpriteFrames_b6mmj")
+offset = Vector2(0, -25)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_3qkds")
+emitting = false
+amount = 20
+lifetime = 2.1799999999999997
+one_shot = true
+explosiveness = 1.0
+trail_enabled = true
+trail_lifetime = 0.01
+process_material = SubResource("ParticleProcessMaterial_b6mmj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3, 6)
+shape = SubResource("RectangleShape2D_3qkds")
+
+[node name="ShakeTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="animations" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_h43mo")
+}
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="Sprite_change"]
+[connection signal="input_event" from="Area2D" to="." method="click"]
+[connection signal="timeout" from="ShakeTimer" to="." method="_on_timer_timeout"]

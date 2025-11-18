@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnm7nipklu2xx"]
+
+[ext_resource type="PackedScene" uid="uid://d1n1kapabvub5" path="res://scense/trash.tscn" id="1_p2ow5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="trash" parent="." instance=ExtResource("1_p2ow5")]
+scale = Vector2(6, 6)
