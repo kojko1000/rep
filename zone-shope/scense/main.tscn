@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://caxri0vbqgp8d" path="res://sounds/sound/f13b9f382959d33.mp3" id="7_8l4s2"]
 [ext_resource type="Script" uid="uid://dvly1ysj52208" path="res://scripts/cameraMain.gd" id="8_tm6jq"]
 [ext_resource type="Texture2D" uid="uid://cvb1n666ta70q" path="res://textures/radio.png" id="9_sm75q"]
-[ext_resource type="Script" uid="uid://gtasq1peduey" path="res://scense/radio.gd" id="10_gjky6"]
+[ext_resource type="Script" uid="uid://gtasq1peduey" path="res://scripts/radio.gd" id="10_gjky6"]
 [ext_resource type="AudioStream" uid="uid://i4u7i2s63as2" path="res://sounds/radio music/Butyrka_-_Vtoryaki_ne_chajj_48655870.mp3" id="11_q2t83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]

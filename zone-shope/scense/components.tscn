@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhrnx6n61yhxk"]
+
+[ext_resource type="Script" uid="uid://bjcucuyeefwnl" path="res://scripts/components.gd" id="1_7e4cl"]
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_7e4cl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
