@@ -25,9 +25,9 @@ func make_Particle(particl : GPUParticles2D):
 
 func make_trashComponents(nazva: String):
 	var new_trash = TrashChertezh.instantiate()
-	add_child(new_trash)
+	get_tree().get_root().add_child(new_trash)
 	new_trash.setup("банка")
-	new_trash.position = Vector2(randf_range(-25,25),randf_range(-25,25))
+	new_trash.position = Vector2(randf_range(-250,250),randf_range(125,170))
 	
 	pass
 
