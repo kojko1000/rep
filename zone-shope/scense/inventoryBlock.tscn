@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpwy7fcyou1tp"]
+
+[ext_resource type="Script" uid="uid://cicl0v1px6f45" path="res://scense/inventBlock.gd" id="1_eyyfw"]
+[ext_resource type="Texture2D" uid="uid://bny4v5gc0f2ht" path="res://textures/trash/trash_components/cola.png" id="2_660mh"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_eyyfw")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+
+[node name="HSplitContainer" type="HSplitContainer" parent="PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+collapsed = true
+dragging_enabled = false
+dragger_visibility = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HSplitContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_660mh")
+expand_mode = 3
+
+[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer/HSplitContainer"]
+layout_mode = 2
+collapsed = true
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/HSplitContainer/VSplitContainer"]
+layout_mode = 2
+text = "qa"
+
+[node name="Label" type="Label" parent="PanelContainer/HSplitContainer/VSplitContainer"]
+layout_mode = 2
+text = "qe"

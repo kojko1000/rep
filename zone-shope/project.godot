@@ -13,4 +13,10 @@ config_version=5
 config/name="ZoneShope"
 run/main_scene="uid://crk8ghmjkec3d"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.096170254, 6.545782e-06, 0.44059715, 1)
+boot_splash/image="uid://cvb1n666ta70q"
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://scripts/global.gd"

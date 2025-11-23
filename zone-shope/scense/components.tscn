@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhrnx6n61yhxk"]
+[gd_scene load_steps=3 format=3 uid="uid://bhrnx6n61yhxk"]
 
 [ext_resource type="Script" uid="uid://bjcucuyeefwnl" path="res://scripts/components.gd" id="1_7e4cl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e4cl"]
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -9,3 +11,11 @@ script = ExtResource("1_7e4cl")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(6, 6)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_7e4cl")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
