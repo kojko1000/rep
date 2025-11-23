@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnm7nipklu2xx"]
+[gd_scene load_steps=4 format=3 uid="uid://dnm7nipklu2xx"]
 
 [ext_resource type="PackedScene" uid="uid://d1n1kapabvub5" path="res://scense/trash.tscn" id="1_p2ow5"]
+[ext_resource type="Texture2D" uid="uid://cki17pm0v88s5" path="res://textures/trash/trash_components/wire.png" id="2_dmart"]
+[ext_resource type="Script" uid="uid://cqx6ir8rectwo" path="res://scripts/streatBTN.gd" id="3_r0d8a"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -8,3 +10,19 @@
 
 [node name="trash" parent="." instance=ExtResource("1_p2ow5")]
 scale = Vector2(6, 6)
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+offset_left = -567.0
+offset_top = -318.0
+offset_right = -476.0
+offset_bottom = -227.0
+icon = ExtResource("2_dmart")
+flat = true
+autowrap_mode = 1
+autowrap_trim_flags = 0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_r0d8a")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
