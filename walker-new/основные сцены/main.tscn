@@ -1,0 +1,849 @@
+[gd_scene load_steps=40 format=3 uid="uid://hhra8ogdynsd"]
+
+[ext_resource type="Script" uid="uid://c1hxmibyhitkc" path="res://scripts/main.gd" id="1_4c57u"]
+[ext_resource type="Script" uid="uid://dmcq6qpuukma3" path="res://addons/zylann.hterrain/hterrain.gd" id="1_lquwl"]
+[ext_resource type="Resource" uid="uid://b5tttfpbnjnwb" path="res://dataTerrain/data.hterrain" id="2_7mycd"]
+[ext_resource type="Script" uid="uid://c2oxjlbhemx1y" path="res://основные сцены/кастыль.gd" id="2_ejy1w"]
+[ext_resource type="AudioStream" uid="uid://df8acddlstu5k" path="res://звуки/nizkochastotnyj-zvuk.mp3" id="2_xsix2"]
+[ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="2_yeaci"]
+[ext_resource type="Script" uid="uid://vw3dkn35qeqh" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_272bh"]
+[ext_resource type="Texture2D" uid="uid://nfiyfwmhbu5k" path="res://текстуры/трава_текстура512.png" id="4_4c57u"]
+[ext_resource type="Script" uid="uid://i50xicbx134y" path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" id="4_5vw27"]
+[ext_resource type="Texture2D" uid="uid://bolyk4umm5tyn" path="res://текстуры/камень_текстура512.png" id="4_kek77"]
+[ext_resource type="Texture2D" uid="uid://cdcnb1nu0e61d" path="res://dataTerrain/трава.png" id="5_7mycd"]
+[ext_resource type="Texture2D" uid="uid://6jmdwj3vn6m0" path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" id="5_kek77"]
+[ext_resource type="PackedScene" uid="uid://c23puo8wabq6j" path="res://основные сцены/player.tscn" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://beeqaie2hxe24" path="res://текстуры/textur-gas-kvas-com-ekkf-p-teksturi-lesnoi-grunt-7.jpg" id="7_getpj"]
+[ext_resource type="Texture2D" uid="uid://cuhg0lq4m3att" path="res://текстуры/трава.png" id="11_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://drqsijc762t33" path="res://основные сцены/tower.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://c25cwl60h1pq3" path="res://объекты/замшелые_булыги_2.tscn" id="13_vivmo"]
+[ext_resource type="PackedScene" uid="uid://b8co6fid7d4wr" path="res://объекты/замшелые_булыги_3.tscn" id="14_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://dee3pop6nncrv" path="res://объекты/замшелые_булыги_1.tscn" id="15_yaehf"]
+[ext_resource type="PackedScene" uid="uid://bythy7rp07oqi" path="res://объекты/сосна_2.tscn" id="16_074og"]
+[ext_resource type="PackedScene" uid="uid://bf2tp804g5jgj" path="res://объекты/сосна_1.tscn" id="17_cegan"]
+[ext_resource type="PackedScene" uid="uid://dsmtcwksyb3ir" path="res://объекты/куст_1.tscn" id="18_074og"]
+[ext_resource type="PackedScene" uid="uid://ht36li20288e" path="res://объекты/саженец.tscn" id="18_82xsv"]
+[ext_resource type="PackedScene" uid="uid://m5kwrqsqdsl4" path="res://объекты/куст_2.tscn" id="20_ryguw"]
+[ext_resource type="PackedScene" uid="uid://cjrhb5a5ys4c8" path="res://объекты/мертвое_дерево_1.tscn" id="21_d13ii"]
+[ext_resource type="PackedScene" uid="uid://brqkm2g6ke7k7" path="res://объекты/мертвое_дерево_2.tscn" id="22_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://ci76le145pve5" path="res://объекты/булыги_3.tscn" id="23_d13ii"]
+[ext_resource type="PackedScene" uid="uid://ccgusx3or4pch" path="res://объекты/dang/arc.tscn" id="25_eoyde"]
+[ext_resource type="PackedScene" uid="uid://cvha3vwye1t4y" path="res://объекты/dang/ramp.tscn" id="26_2i6qb"]
+[ext_resource type="PackedScene" uid="uid://dt4g4paxa6w4s" path="res://объекты/булыги_1.tscn" id="26_e4jjn"]
+[ext_resource type="PackedScene" uid="uid://b6j1ypsxwhsew" path="res://объекты/dang/flor.tscn" id="27_2ne5j"]
+[ext_resource type="PackedScene" uid="uid://dohomii4a5cr6" path="res://объекты/dang/wall.tscn" id="28_ejy1w"]
+[ext_resource type="PackedScene" uid="uid://wtymgxgv51sk" path="res://объекты/булыги_2.tscn" id="32_ytvxa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ne5j"]
+size = Vector3(7.8182373, 3.8935547, 4.778862)
+
+[sub_resource type="Resource" id="Resource_4c57u"]
+script = ExtResource("3_272bh")
+mode = 0
+textures = [[ExtResource("4_4c57u"), ExtResource("4_kek77"), ExtResource("7_getpj")], [null, null, null]]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_272bh"]
+sky_top_color = Color(0.7505261, 0.6052527, 0.89977545, 1)
+sky_horizon_color = Color(0.49183816, 0.40930244, 0.57981366, 1)
+sky_curve = 0.24367575
+sky_energy_multiplier = 1.5
+sun_angle_max = 12.22
+sun_curve = 3.0589461
+
+[sub_resource type="Sky" id="Sky_272bh"]
+sky_material = SubResource("ProceduralSkyMaterial_272bh")
+
+[sub_resource type="Environment" id="Environment_5vw27"]
+background_mode = 2
+sky = SubResource("Sky_272bh")
+ambient_light_color = Color(0.6513582, 0.41345006, 0.79562026, 1)
+ambient_light_sky_contribution = 0.0
+reflected_light_source = 2
+glow_enabled = true
+fog_density = 0.0416
+fog_aerial_perspective = 0.495
+fog_sky_affect = 0.253
+fog_height = 194.02
+fog_height_density = 0.001
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_emission = Color(0.25011674, 0.22300962, 0.5156399, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kek77"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_4c57u")
+
+[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 297, -0.7390938, 35.40459)
+stream = ExtResource("2_xsix2")
+volume_db = 0.761
+unit_size = 3.91
+max_db = 6.0
+script = ExtResource("2_yeaci")
+metadata/_custom_type_script = "uid://dkb8ltjc6067n"
+
+[node name="кастыль" type="Node3D" parent="."]
+script = ExtResource("2_ejy1w")
+
+[node name="Area3D" type="Area3D" parent="кастыль"]
+transform = Transform3D(0.93402386, 0, -0.35721081, 0, 1, 0, 0.35721081, 0, 0.93402386, 277.89764, -1.3337467, 107.205154)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="кастыль/Area3D"]
+transform = Transform3D(0.94682974, 0.2687138, -0.17693603, -0.2430352, 0.95772207, 0.15395528, 0.21082562, -0.10276788, 0.9721069, 3.090454, 0.053770065, 1.3022614)
+shape = SubResource("BoxShape3D_2ne5j")
+
+[node name="HTerrain" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 1, -250)
+script = ExtResource("1_lquwl")
+ambient_wind = 0.095
+map_scale = Vector3(2, 2, 2)
+_terrain_data = ExtResource("2_7mycd")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_4c57u")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+
+[node name="HTerrainDetailLayer" type="Node3D" parent="HTerrain"]
+script = ExtResource("4_5vw27")
+texture = ExtResource("5_7mycd")
+view_distance = 209.871
+density = 10.0
+shader_params/u_globalmap_tint_bottom = null
+shader_params/u_globalmap_tint_top = null
+shader_params/u_bottom_ao = null
+shader_params/u_instance_scale = null
+shader_params/u_roughness = null
+metadata/_editor_icon = ExtResource("5_kek77")
+
+[node name="@Node3D@26580" type="Node3D" parent="HTerrain"]
+script = ExtResource("4_5vw27")
+layer_index = 1
+texture = ExtResource("11_1u8w0")
+view_distance = 479.624
+density = 2.532
+shader_params/u_globalmap_tint_bottom = 0.0
+shader_params/u_globalmap_tint_top = 0.0
+shader_params/u_bottom_ao = 0.950000045125
+shader_params/u_instance_scale = null
+shader_params/u_roughness = null
+metadata/_editor_icon = ExtResource("5_kek77")
+
+[node name="Node3D" parent="." instance=ExtResource("7_272bh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 261.94977, 5, 119.46503)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5vw27")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.26208693, -0.007320715, -0.9650165, 0.9646402, -0.02694487, 0.26218918, -0.027921654, -0.9996101, -4.218221e-08, 0, 131, 0)
+
+[node name="Timer" type="Timer" parent="WorldEnvironment/DirectionalLight3D"]
+wait_time = 0.05
+one_shot = true
+
+[node name="fogChanceTimer" type="Timer" parent="WorldEnvironment/DirectionalLight3D"]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="WorldEnvironment"]
+transform = Transform3D(1.55093, 0.06785455, 0.3661104, 0, 1.5682917, -0.29066566, -0.3723454, 0.28263456, 1.5249596, -2.7842937, 1.419615, 0)
+visible = false
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="конструкции" type="Node3D" parent="."]
+
+[node name="tower" parent="конструкции" instance=ExtResource("11_efxa6")]
+transform = Transform3D(4.72677, 1.5618497, 0.46719566, -1.5689327, 4.747467, 0.0024684244, -0.44282812, -0.14893325, 4.9781246, 49.577103, -10.026457, 10.959768)
+
+[node name="куст1" parent="конструкции" instance=ExtResource("18_074og")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.173035, -0.9173018, 25.750015)
+
+[node name="куст2" parent="конструкции" instance=ExtResource("18_074og")]
+transform = Transform3D(1.1790978, 0, -1.6154654, 0.40906444, 1.9348186, 0.29856843, 1.5628163, -0.5064354, 1.1406702, -4.4516363, 2.290638, 24.462831)
+
+[node name="замшелыеБулыги2" parent="конструкции" instance=ExtResource("13_vivmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.59922, 0.22527361, 33.30278)
+
+[node name="замшелыеБулыги3" parent="конструкции" instance=ExtResource("14_2cqfq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 17.935, -0.16356933, 38.854813)
+
+[node name="замшелыеБулыги4" parent="конструкции" instance=ExtResource("13_vivmo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.49200872, 2.510158, 29.461397)
+
+[node name="куст3" parent="конструкции" instance=ExtResource("20_ryguw")]
+transform = Transform3D(1.920636, 0, -0.5578146, 0, 2, 0, 0.5578146, 0, 1.920636, 60.68213, -0.89583075, -40.593475)
+
+[node name="куст4" parent="конструкции" instance=ExtResource("20_ryguw")]
+transform = Transform3D(1.45533, 0, 1.3718653, 0, 2, 0, -1.3718653, 0, 1.45533, 91.01532, -3.0650277, -43.397125)
+
+[node name="СОСНА1" parent="конструкции" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.9722071, 0, 0.33226398, 0, 2, 0, -0.33226398, 0, 1.9722071, 101.13298, -3.5449905, -79.63547)
+
+[node name="СОСНА2" parent="конструкции" instance=ExtResource("16_074og")]
+transform = Transform3D(1.9603282, 0, 0.3963754, 0, 2, 0, -0.3963754, 0, 1.9603282, 50.51239, -2.1674442, -71.50772)
+
+[node name="саженец" parent="конструкции" instance=ExtResource("18_82xsv")]
+transform = Transform3D(0.48284787, 0, 2.960888, 0, 3, 0, -2.960888, 0, 0.48284787, 80.692825, -1.1331997, -85.13846)
+
+[node name="саженец2" parent="конструкции" instance=ExtResource("18_82xsv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 94.469635, -0.47815132, -104.96164)
+
+[node name="саженец3" parent="конструкции" instance=ExtResource("18_82xsv")]
+transform = Transform3D(2.5616066, 0, -1.5614644, 0, 3, 0, 1.5614644, 0, 2.5616066, 38.42328, -0.9241295, -82.87851)
+
+[node name="СОСНА3" parent="конструкции" instance=ExtResource("17_cegan")]
+transform = Transform3D(2, 0, 0, 0, 1.999964, -0.012007803, 0, 0.012007803, 1.999964, 83.05737, -3.9819946, -103.65381)
+
+[node name="tower2" parent="конструкции" instance=ExtResource("11_efxa6")]
+transform = Transform3D(2.5881908, -1.5316846, -9.537045, 0, 9.873475, -1.5857166, 9.659258, 0.4104137, 2.5554438, 315.0401, -143.13405, 525.9769)
+
+[node name="wall" parent="конструкции" instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 323.91406, 7.9759426, 575.9246)
+
+[node name="ramp" parent="конструкции" instance=ExtResource("26_2i6qb")]
+transform = Transform3D(-0.25881907, -0.9659258, 4.222196e-08, 0, -4.371139e-08, -1, 0.9659258, -0.25881907, 1.1313341e-08, 279.2913, 3.3097205, 523.7975)
+
+[node name="Булыги1" parent="конструкции" instance=ExtResource("26_e4jjn")]
+transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, 306.20383, 1.106586, 505.0528)
+
+[node name="камни" type="Node3D" parent="."]
+
+[node name="замшелыеБулыги2" parent="камни" instance=ExtResource("13_vivmo")]
+transform = Transform3D(0.99913085, 0, -0.041683793, 0, 1, 0, 0.041683793, 0, 0.99913085, -107.33404, 3.907772, -53.46334)
+
+[node name="замшелыеБулыги3" parent="камни" instance=ExtResource("14_2cqfq")]
+transform = Transform3D(0.9288807, 0, 0.37037912, 0, 1, 0, -0.37037912, 0, 0.9288807, -110.48139, 1.4577732, -51.79548)
+
+[node name="замшелыеБулыги1" parent="камни" instance=ExtResource("15_yaehf")]
+transform = Transform3D(0.2541293, 0, -1.9837891, -0.3775051, 1.9634539, -0.04835953, 1.9475392, 0.38059005, 0.24948557, -113.89978, 1.6223168, -56.37089)
+
+[node name="замшелыеБулыги4" parent="камни" instance=ExtResource("14_2cqfq")]
+transform = Transform3D(-1.4299136, 5.8148417, -0.3780989, -4.580254, -1.3622513, -3.6284337, -3.602306, -0.57609326, 4.76356, -85.41295, 0.19071531, -17.514973)
+
+[node name="замшелыеБулыги5" parent="камни" instance=ExtResource("14_2cqfq")]
+transform = Transform3D(2.5786846, 7.2274156, 6.412086, -9.418465, 3.3604336, 0, -2.1547387, -6.0392, 7.673666, -115.172325, -14.612601, -31.638556)
+
+[node name="Булыги3" parent="камни" instance=ExtResource("23_d13ii")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 64.52568, -5.1991816, -11.626888)
+
+[node name="Булыги4" parent="камни" instance=ExtResource("23_d13ii")]
+transform = Transform3D(5.3808627, 0, 9.594077, 0, 11, 0, -9.594077, 0, 5.3808627, 94.91466, 0.64205337, -18.268723)
+
+[node name="замшелыеБулыги7" parent="камни" instance=ExtResource("14_2cqfq")]
+transform = Transform3D(3, 0, 0, 0, -2.9855232, 0.2943642, 0, -0.2943642, -2.9855232, 26.178873, 4.59217, 306.94196)
+
+[node name="замшелыеБулыги8" parent="камни" instance=ExtResource("13_vivmo")]
+transform = Transform3D(2.3531928, 0, -1.860775, 0, 3, 0, 1.860775, 0, 2.3531928, 30.45306, 2.3160887, 314.9106)
+
+[node name="замшелыеБулыги9" parent="камни" instance=ExtResource("14_2cqfq")]
+transform = Transform3D(3.390153, -1.5440106, 1.4570154, 1.418549, 3.6899908, 0.60966206, -1.5794245, 0, 3.6749718, 97.23531, 9.470161, 287.61295)
+
+[node name="замшелыеБулыги10" parent="камни" instance=ExtResource("15_yaehf")]
+transform = Transform3D(1.195815, 0, 2.751368, 0, 3, 0, -2.751368, 0, 1.195815, -12.982949, -10.811145, 372.6469)
+
+[node name="замшелыеБулыги11" parent="камни" instance=ExtResource("13_vivmo")]
+transform = Transform3D(-4.9847026, 0, 0.39081678, 0.11118759, 4.793379, 1.4181507, -0.3746666, 1.422503, -4.778714, 1.2933586, -8.656735, 421.64267)
+
+[node name="замшелыеБулыги12" parent="камни" instance=ExtResource("14_2cqfq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 53.02359, -9.84885, 447.69748)
+
+[node name="замшелыеБулыги13" parent="камни" instance=ExtResource("14_2cqfq")]
+transform = Transform3D(3.942602, -0.4546072, 0.49922156, 0, 2.9574904, 2.6931858, -0.6751962, -2.6545398, 2.915052, -49.7335, -14.7628, 301.97174)
+
+[node name="замшелыеБулыги14" parent="камни" instance=ExtResource("13_vivmo")]
+transform = Transform3D(1.7351261, 0.38119385, 2.4174426, -0.2222748, 2.9756832, -0.30968156, -2.4371974, 0, 1.7493052, -68.61387, -8.419398, 333.83517)
+
+[node name="замшелыеБулыги15" parent="камни" instance=ExtResource("15_yaehf")]
+transform = Transform3D(1.8126545, -0.44973207, -0.71555895, 0.41831768, 1.9487793, -0.16513404, 0.7343663, 0, 1.8602973, -81.47025, -2.0696504, 251.88948)
+
+[node name="замшелыеБулыги6" parent="камни" instance=ExtResource("13_vivmo")]
+transform = Transform3D(2.4990826, -1.5333502e-08, -1.6596944, 0.58064026, 2.8104196, 0.8742982, 1.5548128, -1.049543, 2.341157, 66.03404, 9.245611, 69.54846)
+
+[node name="растительность" type="Node3D" parent="."]
+
+[node name="СОСНА9" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(-0.28920513, 0, 2.9860272, 0, 3, 0, -2.9860272, 0, -0.28920513, -104.05632, -0.06475544, -77.855736)
+
+[node name="СОСНА2" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(1.9885793, 0, 0.21343055, 0.003817989, 1.9996799, -0.03557304, -0.2133964, 0.03577734, 1.988261, -122.81168, -0.7986069, -55.341827)
+
+[node name="СОСНА1" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(2, 0, 0, 0, 1.9991586, 0.058006607, 0, -0.058006607, 1.9991586, -115.39488, 0.45674133, -64.35569)
+
+[node name="СОСНА10" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(2.917231, -0.062389944, 2.7360318, 0.08458947, 3.9991052, 0.0010003336, -2.7354355, 0.057130326, 2.917898, -118.81357, -9.310341, -74.692406)
+
+[node name="СОСНА11" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.5962745, -0.08762962, 1.2017606, 0.042106587, 1.9975426, 0.08972687, -1.2042153, -0.046313338, 1.596158, -117.89136, -0.6493497, -98.01744)
+
+[node name="СОСНА12" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.0962412, -0.1896227, 3.8421736, 0.11315918, 3.994998, 0.16487868, -3.8451853, 0.063507594, 1.1002347, -142.83942, -7.320986, -74.73372)
+
+[node name="СОСНА3" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.5962745, -0.052737735, 1.2037966, 0.04210659, 1.9993045, 0.031753797, -1.2042154, 0, 1.5968298, -132.36627, 0.51249266, -62.57309)
+
+[node name="саженец" parent="растительность" instance=ExtResource("18_82xsv")]
+transform = Transform3D(3, 0, 0, 0, 2.9106464, -0.72673094, 0, 0.72673094, 2.9106464, -111.81163, 1.5243206, -53.20277)
+
+[node name="саженец2" parent="растительность" instance=ExtResource("18_82xsv")]
+transform = Transform3D(3.9211128, -0.5568701, -0.56104755, 0.56243, 3.960262, 0, 0.5554737, -0.07888748, 3.9604578, -118.52624, 1.1340673, -52.513855)
+
+[node name="СОСНА4" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(0.2281404, 0, 1.9869454, 0, 2, 0, -1.9869454, 0, 0.2281404, -119.48982, 0.3134308, -26.08552)
+
+[node name="СОСНА5" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(1.8342319, -0.15042354, 0.7829213, 0.17039333, 1.9926612, -0.016346104, -0.77881914, 0.08169358, 1.8403169, -124.108185, -0.23759604, -20.030293)
+
+[node name="СОСНА6" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.5, 0, 0, 0, 1.4895009, 0.177164, 0, -0.177164, 1.4895009, -98.840225, 1.5941868, -18.409431)
+
+[node name="СОСНА7" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.6312939, 1.2665987e-08, 0.47841477, 0.047599114, 1.691565, -0.16230305, -0.47604096, 0.16913886, 1.6231997, -108.863144, 0.08707905, -11.957928)
+
+[node name="саженец3" parent="растительность" instance=ExtResource("18_82xsv")]
+transform = Transform3D(3, 0, 0, 0, 2.9968927, -0.1365074, 0, 0.1365074, 2.9968927, -112.151184, -0.32908344, -23.01363)
+
+[node name="саженец4" parent="растительность" instance=ExtResource("18_82xsv")]
+transform = Transform3D(2.9932475, 0.20117268, 0, -0.20075448, 2.9870253, 0.19333568, 0.012964616, -0.19290048, 2.9937637, -99.53567, 1.2766676, -41.37846)
+
+[node name="СОСНА13" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(-1.7320508, 0, 1.0000001, 0, 2, 0, -1.0000001, 0, -1.7320508, -89.448265, -0.6798849, -66.2793)
+
+[node name="куст1" parent="растительность" instance=ExtResource("18_074og")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -90.36608, 2.599698, -62.04742)
+
+[node name="куст2" parent="растительность" instance=ExtResource("20_ryguw")]
+transform = Transform3D(1.9901251, 0.19850056, 0, -0.19850056, 1.9901251, 0, 0, 0, 2, -73.19025, 3.2325916, -70.92962)
+
+[node name="мертвое_дерево1" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -79.54241, 2.5061045, -66.25348)
+
+[node name="мертвое_дерево2" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(1.8603486, 0, 0.7342364, 0, 2, 0, -0.7342364, 0, 1.8603486, -43.09022, -3.3700647, -60.101574)
+
+[node name="мертвое_дерево3" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(2, 0, 0, 0, 1.7818545, 0.908292, 0, -0.908292, 1.7818545, -49.31328, -2.369306, -21.286423)
+
+[node name="куст3" parent="растительность" instance=ExtResource("18_074og")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -45.692406, -0.49000585, -20.42749)
+
+[node name="куст4" parent="растительность" instance=ExtResource("18_074og")]
+transform = Transform3D(1.5887021, 0, 1.214918, 0, 2, 0, -1.214918, 0, 1.5887021, -39.66805, 1.013483, -62.810974)
+
+[node name="СОСНА14" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.9612908, -0.0077224104, -0.39150807, 0, 1.999611, -0.039441887, 0.39158422, 0.038678505, 1.9609094, -53.027164, -0.5762515, -13.424727)
+
+[node name="СОСНА15" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(1.9624037, 0, 0.38596871, 0, 2, 0, -0.38596871, 0, 1.9624037, -44.69383, 0.68660116, -47.91464)
+
+[node name="куст5" parent="растительность" instance=ExtResource("18_074og")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -58.77977, 0.4777732, -63.31439)
+
+[node name="куст6" parent="растительность" instance=ExtResource("20_ryguw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -36.07689, 1.1231213, -50.646557)
+
+[node name="мертвое_дерево4" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(1.8516488, -0.10423515, -0.74868655, 0, 1.980894, -0.275788, 0.7559078, 0.25533128, 1.8339599, 5.421331, -1.4454885, -27.483524)
+
+[node name="мертвое_дерево5" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(1.4645392, 0, 1.3620297, -0.49529046, 1.863078, 0.5325672, -1.2687838, -0.72728294, 1.3642753, -10.478034, -6.736246, 10.777248)
+
+[node name="мертвое_дерево6" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(1.9891458, 0.20808487, 0, -0.20808487, 1.9891458, 0, 0, 0, 2, 6.606333, 0.4782877, -10.829536)
+
+[node name="куст7" parent="растительность" instance=ExtResource("18_074og")]
+transform = Transform3D(2, 0, 0, 0, 1.8936357, 0.64353997, 0, -0.64353997, 1.8936357, 8.708077, 0.116827965, -20.541662)
+
+[node name="куст8" parent="растительность" instance=ExtResource("20_ryguw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.5601752, 0.93763065, -37.740513)
+
+[node name="саженец5" parent="растительность" instance=ExtResource("18_82xsv")]
+transform = Transform3D(2.977376, 0.36773866, 0, -0.36773866, 2.977376, 0, 0, 0, 3, -25.66943, 0.13984871, -44.200123)
+
+[node name="мертвое_дерево7" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(1.6239138, 0.3993824, -1.0969952, -0.47764322, 1.9421271, 0, 1.0652518, 0.2619861, 1.6723043, -18.564085, 1.3705359, -42.354343)
+
+[node name="мертвое_дерево8" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(-0.43973583, -0.42953882, 1.9031891, -0.096698284, 1.9533296, 0.41851288, -1.9486616, 0, -0.45024234, -3.3582811, -2.154199, -44.485046)
+
+[node name="СОСНА16" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.7747625, 0, 0.92207265, 0, 2, 0, -0.92207265, 0, 1.7747625, -21.152805, -1.3298888, -50.645718)
+
+[node name="СОСНА8" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.5903744, 0.03782689, 0.5993987, -0.03539636, 1.6995791, -0.013340589, -0.59954715, 0, 1.5907682, -93.95541, 1.5287361, -62.44407)
+
+[node name="СОСНА17" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.9625821, 0.1391304, 0.35904682, -0.14142808, 1.9949934, 0, -0.35814795, -0.025389647, 1.9675074, 81.446686, -0.051502466, 28.975245)
+
+[node name="СОСНА18" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(2, 0, 0, 0, 1.9841636, 0.25118592, 0, -0.25118592, 1.9841636, 70.0093, -1.1734428, 41.668514)
+
+[node name="саженец6" parent="растительность" instance=ExtResource("18_82xsv")]
+transform = Transform3D(2.8977776, 0, 0.77645713, 0, 3, 0, -0.77645713, 0, 2.8977776, 65, 2, 49)
+
+[node name="саженец7" parent="растительность" instance=ExtResource("18_82xsv")]
+transform = Transform3D(3.7305193, 0, 3.329148, -0.4792032, 4.947931, 0.5369773, -3.294479, -0.7197085, 3.6916704, 79.743904, -0.555243, 38.457005)
+
+[node name="куст9" parent="растительность" instance=ExtResource("20_ryguw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 77.582405, 2.3942966, 48.15483)
+
+[node name="куст10" parent="растительность" instance=ExtResource("20_ryguw")]
+transform = Transform3D(1.7348192, 0, 0.9951896, 0, 2, 0, -0.9951896, 0, 1.7348192, 63.377544, 5.6100054, 79.04724)
+
+[node name="СОСНА19" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.9971166, -0.10735594, 0, 0.10735594, 1.9971166, 0, 0, 0, 2, 54.006554, 6.796931, 80.035675)
+
+[node name="СОСНА20" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(1.8957927, -0.061301302, 0.6342019, 0, 1.9907221, 0.19242115, -0.6371576, -0.18239531, 1.8869982, 66.33096, 8.840038, 94.10085)
+
+[node name="СОСНА21" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.7986426, 0, -0.87457687, 0, 2, 0, 0.87457687, 0, 1.7986426, 98.42122, 6.116358, 70.777435)
+
+[node name="куст11" parent="растительность" instance=ExtResource("18_074og")]
+transform = Transform3D(2, 0, 0, 0, 1.9694699, 0.34812137, 0, -0.34812137, 1.9694699, 96.08757, 9.247091, 78.5572)
+
+[node name="куст12" parent="растительность" instance=ExtResource("20_ryguw")]
+transform = Transform3D(0.41916877, 0, 1.9555811, 0, 2, 0, -1.9555811, 0, 0.41916877, 77.28668, 11.673783, 96.01254)
+
+[node name="куст13" parent="растительность" instance=ExtResource("20_ryguw")]
+transform = Transform3D(1.9612635, 0.39059427, 0.029691169, -0.39172113, 1.9556216, 0.1486573, 0, -0.1515934, 1.9942466, 86.71405, 7.4588523, 85.940186)
+
+[node name="куст15" parent="растительность" instance=ExtResource("20_ryguw")]
+transform = Transform3D(2, 0, 0, 0, 1.9774344, 0.2995884, 0, -0.2995884, 1.9774344, 98.66212, 2.0526667, 58.14476)
+
+[node name="СОСНА22" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(2.4833617, 0, 0.28794968, 0, 2.5, 0, -0.28794968, 0, 2.4833617, 113.21824, 4.586697, 45.26161)
+
+[node name="куст16" parent="растительность" instance=ExtResource("18_074og")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 115.64872, 4.2877245, 52.91435)
+
+[node name="СОСНА23" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(3, 0, 0, 0, 2.9994452, 0.057697028, 0, -0.057697028, 2.9994452, -39.5596, 0.4272504, -78.24786)
+
+[node name="СОСНА24" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.7377816, 0, 0.9900076, 0, 2, 0, -0.9900076, 0, 1.7377816, -21.397858, -1.8891592, -67.69263)
+
+[node name="СОСНА25" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(1.8990153, 0, 0.6274878, 0, 2, 0, -0.6274878, 0, 1.8990153, -10.9158325, -1.8379307, -79.427704)
+
+[node name="куст17" parent="растительность" instance=ExtResource("18_074og")]
+transform = Transform3D(1.6958002, 0, 1.0603122, 0, 2, 0, -1.0603122, 0, 1.6958002, -34.51956, -0.23427677, -83.80595)
+
+[node name="куст18" parent="растительность" instance=ExtResource("20_ryguw")]
+transform = Transform3D(1.6725149, -0.033146422, 1.096173, 0, 1.9990863, 0.060448997, -1.0966741, -0.050550923, 1.6717508, -21.332153, -0.114501595, -81.59726)
+
+[node name="СОСНА26" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.9990317, -0.062228397, 0, 0.062228397, 1.9990317, 0, 0, 0, 2, -6.4261475, -2.2583256, -132.93283)
+
+[node name="СОСНА27" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(1.0444614, 0, -1.7056086, 0, 2, 0, 1.7056086, 0, 1.0444614, -28.364594, -2.2583256, -153.34055)
+
+[node name="СОСНА28" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.9025656, 0, 0.6166395, 0, 2, 0, -0.6166395, 0, 1.9025656, -57.172028, -2.2583218, -150.81467)
+
+[node name="СОСНА29" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -85.375336, -2.2583265, -168.03458)
+
+[node name="СОСНА30" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(1.9615774, 0, 0.3901464, -0.023240129, 1.9964485, 0.11684668, -0.38945362, -0.119135424, 1.9580941, -89.59036, -2.2583275, -77.08911)
+
+[node name="СОСНА31" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -78.946014, -2.2583256, -154.8234)
+
+[node name="СОСНА32" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -40.714447, -2.2583256, -168.55695)
+
+[node name="мертвое_дерево9" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(1.9857527, -0.2382983, 0, 0.2382983, 1.9857527, 0, 0, 0, 2, -42.832977, -1.4144554, -150.89966)
+
+[node name="мертвое_дерево10" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -26.025024, -0.38398743, -124.92044)
+
+[node name="куст19" parent="растительность" instance=ExtResource("20_ryguw")]
+transform = Transform3D(1.9880823, 0, 0.21801133, 0, 2, 0, -0.21801133, 0, 1.9880823, -1.2669983, 0.42850626, -124.50058)
+
+[node name="куст20" parent="растительность" instance=ExtResource("18_074og")]
+transform = Transform3D(1.947738, 0, 0.45422053, 0, 2, 0, -0.45422053, 0, 1.947738, 4.0660095, -0.053865433, -109.31799)
+
+[node name="СОСНА33" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(1.9593258, 0, 0.40130097, 0, 2, 0, -0.40130097, 0, 1.9593258, -9.264801, -0.5217838, -84.99542)
+
+[node name="СОСНА34" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(1.9562154, 0, -0.41619897, 0, 2, 0, 0.41619897, 0, 1.9562154, 0.8295288, -0.4987011, -100.51535)
+
+[node name="СОСНА35" parent="растительность" instance=ExtResource("17_cegan")]
+transform = Transform3D(2.065057, 0, 1.0126891, 0, 2.3, 0, -1.0126891, 0, 2.065057, -1.3891296, -0.5975208, -88.20145)
+
+[node name="СОСНА36" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(2.97124, 0, 0.41440806, 0.024569819, 2.994723, -0.17616172, -0.41367906, 0.17786688, 2.9660134, -35.42685, -1.6883774, -140.8158)
+
+[node name="саженец8" parent="растительность" instance=ExtResource("18_82xsv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -48.778656, 0.2692566, -144.41565)
+
+[node name="куст21" parent="растительность" instance=ExtResource("18_074og")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.008911, 0.36494637, -110.387146)
+
+[node name="куст22" parent="растительность" instance=ExtResource("20_ryguw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.225952, -0.26231062, -132.99414)
+
+[node name="куст23" parent="растительность" instance=ExtResource("20_ryguw")]
+transform = Transform3D(1.8581489, 0, -0.7397854, 0, 2, 0, 0.7397854, 0, 1.8581489, -11.795746, -0.5250803, -98.91916)
+
+[node name="мертвое_дерево11" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(1.9287921, 0, 0.52892447, 0.1360306, 1.9327252, -0.4960533, -0.51113284, 0.5143668, 1.8639126, -26.335949, -2.2948227, -116.47068)
+
+[node name="мертвое_дерево12" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(2, 0, 0, 0, 1.9868855, 0.22866061, 0, -0.22866061, 1.9868855, -18.42979, -1.0847588, -121.93713)
+
+[node name="мертвое_дерево13" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(1.9911338, 0.18811236, 0, -0.18811236, 1.9911338, 0, 0, 0, 2, -95.32092, -3.7864838, -53.920044)
+
+[node name="мертвое_дерево14" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(4, 0, 0, 0, 3.8905365, 0.9293684, 0, -0.9293684, 3.8905365, -64.75098, -1.8609467, -26.401276)
+
+[node name="мертвое_дерево15" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(3.738869, 1.0218568, 0.98826677, -1.0545495, 3.8584878, 0, -0.9533036, -0.26054397, 3.875994, -112.778595, -2.2914104, -45.79602)
+
+[node name="СОСНА37" parent="растительность" instance=ExtResource("16_074og")]
+transform = Transform3D(1.9632385, 0, 0.9928216, 0, 2.2, 0, -0.9928216, 0, 1.9632385, -91.592804, -1.1944141, -24.028442)
+
+[node name="куст14" parent="растительность" instance=ExtResource("18_074og")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 71.725685, 8.207029, 75.11256)
+
+[node name="куст24" parent="растительность" instance=ExtResource("20_ryguw")]
+transform = Transform3D(1.961727, -0.38939327, 0, 0.38939327, 1.961727, 0, 0, 0, 2, 7.1747665, -6.4209013, 358.16428)
+
+[node name="мертвое_дерево16" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(1.9231092, 0.5408369, 0.09563667, -0.54922754, 1.8937294, 0.3348699, 0, -0.34825885, 1.9694456, -51.946804, -12.571394, 388.7066)
+
+[node name="мертвое_дерево17" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(1.6160619, -1.1782799, 0, 1.1664785, 1.5998759, -0.28235537, 0.16634682, 0.22815187, 1.9799685, -21.890795, -13.0264845, 335.88956)
+
+[node name="саженец9" parent="растительность" instance=ExtResource("18_82xsv")]
+transform = Transform3D(2.9777467, -0.36472455, 0, 0.36472455, 2.9777467, 0, 0, 0, 3, -72.25774, -7.8360605, 325.9335)
+
+[node name="мертвое_дерево18" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(1.6141642, 0.5167913, -1.0617917, -0.6098285, 1.9047599, 0, 1.0112288, 0.32375532, 1.6948742, -62.22619, -10.701015, 311.7409)
+
+[node name="мертвое_дерево19" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(1.9320142, -0.51703113, 0, 0.51703113, 1.9320142, 0, 0, 0, 2, -35.012592, -8.410196, 279.7167)
+
+[node name="мертвое_дерево20" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(-0.5747936, 0.58050466, 1.8255482, -0.7801506, 1.6697993, -0.77661717, -1.7495646, -0.9352986, -0.25345442, -69.64288, -7.848013, 279.24023)
+
+[node name="мертвое_дерево21" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -22.007715, -4.7812667, 422.20303)
+
+[node name="мертвое_дерево22" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(1.9559608, -0.41739386, 0, 0.41739386, 1.9559608, 0, 0, 0, 2, 19.88599, -5.417429, 382.64627)
+
+[node name="мертвое_дерево23" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -34.23487, -3.763244, 416.99524)
+
+[node name="мертвое_дерево24" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32.653877, -2.6438606, 433.51273)
+
+[node name="мертвое_дерево25" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.7092056, -5.479101, 453.83017)
+
+[node name="мертвое_дерево26" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(2.3, 0, 0, 0, 2.2949991, -0.15158881, 0, 0.15158881, 2.2949991, 53.375595, -3.8659904, 409.09152)
+
+[node name="мертвое_дерево27" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(1.7906024, 0, 1.7446325, -0.4127813, 2.4290175, 0.4236579, -1.695097, -0.59150183, 1.739762, 35.922844, -4.3016906, 478.1769)
+
+[node name="мертвое_дерево28" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(1.9271955, -0.10822264, -0.5236459, 0, 1.9586083, -0.40478837, 0.5347122, 0.39005318, 1.8873106, 93.45565, -7.658008, 455.5478)
+
+[node name="мертвое_дерево29" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(0.9552319, -0.2958581, 0, 0.2958581, 0.9552319, 0, 0, 0, 1, 90.03481, -3.4354548, 499.29987)
+
+[node name="мертвое_дерево30" parent="растительность" instance=ExtResource("21_d13ii")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 33.654724, -3.0432057, 514.58026)
+
+[node name="мертвое_дерево31" parent="растительность" instance=ExtResource("22_1u8w0")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -37.981945, -4.777129, 473.1908)
+
+[node name="arc" parent="." instance=ExtResource("25_eoyde")]
+transform = Transform3D(0.46024582, 0.151031, 0.8748505, -0.4325107, 0.89871854, 0.07238593, -0.7753119, -0.41169754, 0.47895393, 279.81088, -4.113455, 110.89544)
+
+[node name="ramp" parent="." instance=ExtResource("26_2i6qb")]
+transform = Transform3D(-0.51912427, 0.07292106, -0.85158247, -0.22939453, 0.9479101, 0.2210084, 0.8233397, 0.31007913, -0.47535545, 280.39862, -2.8379774, 108.474556)
+
+[node name="flor" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(0.8660254, 0, -0.49999994, 0, 1.0000001, 0, 0.5, 0, 0.86602527, 284.426, -2.8913763, 100.04932)
+
+[node name="wall" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.6781636, 0.12919176, 0.72346646, -0.26278287, 0.961971, 0.07454535, -0.68632305, -0.24066852, 0.68632305, 291.55792, -5.891377, 104.37625)
+
+[node name="wall2" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.25881907, 0, 0.9659258, -0.25, 0.9659258, 0.066987306, -0.93301266, -0.25881904, 0.25000003, 279.89798, -6.4381337, 97.46849)
+
+[node name="ramp2" parent="." instance=ExtResource("26_2i6qb")]
+transform = Transform3D(0.4026444, 0.2081364, 0.89137906, -0.4708309, 0.88219815, 0.0066861296, -0.78498125, -0.42238095, 0.45320916, 290.83292, -3.0988584, 91.72012)
+
+[node name="flor2" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 294.3958, -8, 77.75283)
+
+[node name="wall3" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.49433637, 0, 0.8692707, 0, 1, 0, -0.8692707, 0, 0.49433637, 286.8217, -9, 79.211464)
+
+[node name="wall4" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, 301.56064, -8.740178, 86.07895)
+
+[node name="flor3" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(0.9111358, 0.06853695, -0.4063672, 0.048006486, 0.9617086, 0.26983708, 0.40930057, -0.2653665, 0.8729569, 287.35187, 6.1389847, 98.215126)
+
+[node name="flor4" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 294.0042, 4.8673096, 81.81978)
+
+[node name="flor5" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(1, 0, 0, 0, 0.9938455, 0.11077513, 0, -0.11077513, 0.9938455, 296.53342, -9.107836, 61.175068)
+
+[node name="wall5" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 305.78967, -8.993757, 66.65114)
+
+[node name="wall6" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(-0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881907, 289.4118, -9.6320305, 63.92472)
+
+[node name="flor6" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 296.24316, 3.8857012, 65.58219)
+
+[node name="flor7" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(0.71680105, 0, -0.6972777, 0, 1, 0, 0.6972777, 0, 0.71680105, 277.44998, -10.030941, 52.602245)
+
+[node name="flor8" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 314.0435, -10.000001, 53.72883)
+
+[node name="flor9" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 269.0559, -10.140041, 34.097088)
+
+[node name="flor10" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 321.34262, -10.1114235, 35.317207)
+
+[node name="flor11" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 315.0442, -10.150652, 15.655699)
+
+[node name="flor12" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(0.6162114, 0, -0.78758085, 0, 1, 0, 0.78758085, 0, 0.6162114, 276.23648, -10.382534, 14.561073)
+
+[node name="flor13" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.97162, -10.051154, 6.8022814)
+
+[node name="ramp3" parent="." instance=ExtResource("26_2i6qb")]
+transform = Transform3D(-0.9659258, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, -0.9659258, 328.71616, -8.092131, 47.794693)
+
+[node name="ramp4" parent="." instance=ExtResource("26_2i6qb")]
+transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, 326.44794, -8.24278, 18.262577)
+
+[node name="ramp5" parent="." instance=ExtResource("26_2i6qb")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 263.68015, -8.232173, 47.981777)
+
+[node name="ramp6" parent="." instance=ExtResource("26_2i6qb")]
+transform = Transform3D(0.9334177, 0, -0.35879156, 0, 1, 0, 0.35879156, 0, 0.9334177, 262.91736, -8.474666, 18.233711)
+
+[node name="ramp7" parent="." instance=ExtResource("26_2i6qb")]
+transform = Transform3D(0.31631142, 0, -0.94865537, 0, 1, 0, 0.94865537, 0, 0.31631142, 283.4209, -8.474664, 2.3835144)
+
+[node name="ramp8" parent="." instance=ExtResource("26_2i6qb")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 309.77515, -8.242782, 2.5626101)
+
+[node name="wall7" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.94083, -9.965616, -0.99452305)
+
+[node name="wall8" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 313.90015, -10.150656, 4.355438)
+
+[node name="wall9" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 326.98083, -10.150653, 17.22479)
+
+[node name="wall10" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.8660253, 0, 0.49999997, 0, 1, 0, -0.49999997, 0, 0.8660253, 277.13547, -10.382535, 4.028777)
+
+[node name="wall11" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.5, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, 0.5, 263.4769, -10.382539, 17.87391)
+
+[node name="wall12" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 260.4219, -10.2154255, 35.722393)
+
+[node name="wall13" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 266.93658, -10.213911, 53.15773)
+
+[node name="wall14" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 330.61172, -10.132433, 34.655617)
+
+[node name="wall15" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.70710677, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.70710677, 323.41354, -10.268512, 50.960453)
+
+[node name="wall16" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.8660253, 0, 0.49999997, 0, 1, 0, -0.49999997, 0, 0.8660253, 278.34143, -10.000002, 58.707787)
+
+[node name="wall17" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 315.56454, -10.018576, 58.89888)
+
+[node name="flor14" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(4.4572597, 0, 0, 0, 1, 0, 0, 0, 4.4572597, 300.63278, 2.6076813, 30.109533)
+
+[node name="flor15" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(1.85, 0, 0, 0, 1, 0, 0, 0, 1.85, 293.9272, -11.200297, 34.178642)
+
+[node name="Булыги3" parent="." instance=ExtResource("23_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 282.84656, -3.5560184, 111.30079)
+
+[node name="Булыги2" parent="." instance=ExtResource("32_ytvxa")]
+transform = Transform3D(0.30363402, 0, 0.9527888, 0, 1, 0, -0.9527888, 0, 0.30363402, 278.72748, -4.6082325, 115.71495)
+
+[node name="Булыги4" parent="." instance=ExtResource("23_d13ii")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 275.83405, -2.7171803, 107.915504)
+
+[node name="Булыги5" parent="." instance=ExtResource("23_d13ii")]
+transform = Transform3D(1.1796114, 0, 2.7583542, 2.5777247, 1.0677677, -1.1023651, -0.98176056, 2.8035464, 0.41985035, 256.1164, -6.250639, 120.14267)
+
+[node name="Булыги6" parent="." instance=ExtResource("32_ytvxa")]
+transform = Transform3D(1.3687782, 0, 2.6695404, 0, 3, 0, -2.6695404, 0, 1.3687782, 292.5993, -5.5921125, 120.77824)
+
+[node name="Булыги7" parent="." instance=ExtResource("23_d13ii")]
+transform = Transform3D(1.6766431, -3.3872628, 1.3097016, 2.6693816, 2.1275456, 2.0851743, -2.4623709, 0, 3.152258, 280.22333, -7.3197575, 136.9624)
+
+[node name="куст1" parent="." instance=ExtResource("18_074og")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 262.27448, -4.426542, 110.89524)
+
+[node name="куст2" parent="." instance=ExtResource("20_ryguw")]
+transform = Transform3D(1.8034538, 0, 0.86461216, 0, 2, 0, -0.86461216, 0, 1.8034538, 273.13574, -6.83799, 125.46848)
+
+[node name="куст3" parent="." instance=ExtResource("20_ryguw")]
+transform = Transform3D(2, 0, 0, 0, 1.7088814, -1.0390978, 0, 1.0390978, 1.7088814, 267.3951, 11.589891, 94.7022)
+
+[node name="куст4" parent="." instance=ExtResource("20_ryguw")]
+transform = Transform3D(1.9063212, -1.6217755, 1.6540203, 1.943921, 2.2849882, 0, -1.2598058, 1.0717617, 2.502842, 297.35764, 1.7371054, 111.681175)
+
+[node name="СОСНА2" parent="." instance=ExtResource("16_074og")]
+transform = Transform3D(1.8819627, 0, 0.6769175, 0.0770518, 1.9870011, -0.21421903, -0.6725179, 0.22765498, 1.8697308, 252.0624, -5.4367356, 115.525826)
+
+[node name="СОСНА1" parent="." instance=ExtResource("17_cegan")]
+transform = Transform3D(2, 0, 0, 0, 1.9886758, 0.21252814, 0, -0.21252814, 1.9886758, 261.27386, -6.914342, 134.36436)
+
+[node name="куст5" parent="." instance=ExtResource("20_ryguw")]
+transform = Transform3D(-0.018954081, 0, -1.9999102, -0.23631206, 1.9859889, 0.0022396396, 1.9858997, 0.23632267, -0.018821297, 240.55893, -4.536729, 111.60589)
+
+[node name="саженец" parent="." instance=ExtResource("18_82xsv")]
+transform = Transform3D(2.9326344, -0.026032113, 0.6316469, 0, 2.9974554, 0.123534374, -0.63218296, -0.12076038, 2.930147, 248.2918, -0.46406996, 147.27148)
+
+[node name="СОСНА3" parent="." instance=ExtResource("16_074og")]
+transform = Transform3D(1.5131916, 0, 1.3077658, 0.053988177, 1.998295, -0.062468715, -1.306651, 0.08256551, 1.5119015, 254.76959, -0.7201891, 159.27281)
+
+[node name="СОСНА4" parent="." instance=ExtResource("17_cegan")]
+transform = Transform3D(1.5437821, 0, 1.27151, -0.12341503, 1.9905567, 0.14984223, -1.2655064, -0.19412361, 1.5364928, 244.75833, -3.175771, 134.07468)
+
+[node name="СОСНА5" parent="." instance=ExtResource("16_074og")]
+transform = Transform3D(1.5605991, 0, 1.2508123, 0.15003023, 1.9855608, -0.18718797, -1.241782, 0.23989251, 1.5493321, 124.90145, 7.175622, 111.96919)
+
+[node name="СОСНА6" parent="." instance=ExtResource("17_cegan")]
+transform = Transform3D(1.9544632, 0.12519783, 0.40546143, -0.122587696, 1.9960775, -0.025431322, -0.4062582, 0, 1.9583039, 99.24565, 10.706975, 120.63333)
+
+[node name="СОСНА7" parent="." instance=ExtResource("17_cegan")]
+transform = Transform3D(1.9155546, 0, -0.575022, 0, 2, 0, 0.575022, 0, 1.9155546, 216.51076, -3.2068453, 111.121666)
+
+[node name="СОСНА8" parent="." instance=ExtResource("16_074og")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 177.29716, -1.2836509, 156.55511)
+
+[node name="СОСНА9" parent="." instance=ExtResource("16_074og")]
+transform = Transform3D(1.858312, -0.17757998, 0.71773374, 0.16565378, 1.9921007, 0.063980274, -0.7205798, 0, 1.8656808, 160.73183, -0.052584648, 158.06781)
+
+[node name="СОСНА10" parent="." instance=ExtResource("17_cegan")]
+transform = Transform3D(1.9098535, 0, 0.5936832, 0.04794325, 1.9934678, -0.15423138, -0.5917442, 0.16151123, 1.9036157, 181.0133, -2.2949152, 177.10866)
+
+[node name="куст6" parent="." instance=ExtResource("20_ryguw")]
+transform = Transform3D(1.9468066, 0, 0.4581969, 0, 2, 0, -0.4581969, 0, 1.9468066, 169.46149, 1.7633804, 190.77667)
+
+[node name="мертвое_дерево1" parent="." instance=ExtResource("21_d13ii")]
+transform = Transform3D(1.9933887, -0.1624854, 0, 0.1624854, 1.9933887, 0, 0, 0, 2, 137.42097, -0.17167377, 173.96487)
+
+[node name="мертвое_дерево2" parent="." instance=ExtResource("22_1u8w0")]
+transform = Transform3D(1.9703505, 0.34310165, 0, -0.34310165, 1.9703505, 0, 0, 0, 2, 134.80426, 0.82699704, 184.87115)
+
+[node name="куст7" parent="." instance=ExtResource("20_ryguw")]
+transform = Transform3D(1.9896305, 0, 0.20339748, 0, 2, 0, -0.20339748, 0, 1.9896305, 107.35112, 7.989525, 148.61417)
+
+[node name="СОСНА11" parent="." instance=ExtResource("16_074og")]
+transform = Transform3D(0.2359953, 0, -2.1873057, 0, 2.2, 0, 2.1873057, 0, 0.2359953, 93.076035, 8.541193, 134.67558)
+
+[node name="СОСНА12" parent="." instance=ExtResource("17_cegan")]
+transform = Transform3D(2, 0, 0, 0, 1.9935634, -0.16032827, 0, 0.16032827, 1.9935634, 84.96249, 10.718031, 117.29878)
+
+[node name="СОСНА13" parent="." instance=ExtResource("16_074og")]
+transform = Transform3D(2, 0, 0, 0, 1.9961967, 0.12328167, 0, -0.12328167, 1.9961967, 75.42771, 11.062737, 109.66202)
+
+[node name="arc2" parent="." instance=ExtResource("25_eoyde")]
+transform = Transform3D(0.48467764, 0.24566269, -0.8394864, -0.12283134, 0.96935534, 0.21275014, 0.86602545, 0, 0.49999997, 79.00412, 5.0108633, 133.78912)
+
+[node name="arc3" parent="." instance=ExtResource("25_eoyde")]
+transform = Transform3D(-0.6420449, -0.37357068, 0.66949475, -0.2585691, 0.9276017, 0.26962394, -0.7217481, 0, -0.6921558, 90.45507, 4.042693, 146.02188)
+
+[node name="ramp9" parent="." instance=ExtResource("26_2i6qb")]
+transform = Transform3D(0.874303, 0.2958502, 0.38479477, -0.32053033, 0.94723827, 0, -0.36449233, -0.123338394, 0.9230022, 3.0328388, 3.2385516, 33.446693)
+
+[node name="flor16" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(0.36857933, 0.7153343, 0.5936717, -0.88893723, 0.4580291, 2.3008441e-08, -0.2719189, -0.5277369, 0.8047073, 9.971714, 3.958641, 34.384438)
+
+[node name="arc4" parent="." instance=ExtResource("25_eoyde")]
+transform = Transform3D(0.37064335, 0.09933713, -0.9234478, -0.27372047, 0.9617878, -0.006401492, 0.88752496, 0.25513926, 0.3836709, -0.4694662, -1.4134636, 25.708002)
+
+[node name="Булыги8" parent="." instance=ExtResource("23_d13ii")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.491271, 7.134741, 32.872692)
+
+[node name="ramp10" parent="." instance=ExtResource("26_2i6qb")]
+transform = Transform3D(-0.69163156, -0.18493614, -0.6981722, -0.16580918, 0.9815004, -0.09572999, 0.70296025, 0.04955349, -0.70950073, 248.82123, 2.0495038, 566.1731)
+
+[node name="flor17" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(0.71597624, 0.11880619, -0.6879412, 0.030360237, 0.9791821, 0.20070045, 0.69746417, -0.16458283, 0.69746417, 255.88762, 0.12286949, 559.42664)
+
+[node name="wall18" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.1442526, 0, 0.9895409, 0, 1, 0, -0.9895409, 0, 0.1442526, 236.72041, 0.73305184, 523.45605)
+
+[node name="wall19" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.9711384, 0, -0.2385165, 0, 1, 0, 0.2385165, 0, 0.9711384, 283.1091, 1, 586.835)
+
+[node name="wall20" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(-0.124727204, 0, -0.9921911, 0, 1, 0, 0.9921911, 0, -0.124727204, 344.64767, 10.572231, 540.08606)
+
+[node name="wall21" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 334.21344, 10.862438, 499.02176)
+
+[node name="wall22" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.9976831, 0, -0.0680327, 0, 1, 0, 0.0680327, 0, 0.9976831, 299.13004, 6.4344883, 478.7564)
+
+[node name="wall23" parent="." instance=ExtResource("28_ejy1w")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 258.17206, -0.5663533, 488.28253)
+
+[node name="ramp11" parent="." instance=ExtResource("26_2i6qb")]
+transform = Transform3D(-0.3791789, -0.13249229, 0.9157889, -0.6914592, 0.6982529, -0.18527593, -0.6149047, -0.7034834, -0.35637575, 272.34692, 5.139851, 476.274)
+
+[node name="arc5" parent="." instance=ExtResource("25_eoyde")]
+transform = Transform3D(0.7606213, 0, 0.6491959, 0, 1, 0, -0.6491959, 0, 0.7606213, 248.72536, -0.7373009, 564.78406)
+
+[node name="ramp12" parent="." instance=ExtResource("26_2i6qb")]
+transform = Transform3D(0.49999997, 0, -0.86602545, -0.430156, 0.8679215, -0.24835065, 0.7516421, 0.4967013, 0.43396074, 295.24527, 10.487357, 539.2051)
+
+[node name="flor18" parent="." instance=ExtResource("27_2ne5j")]
+transform = Transform3D(0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.86602545, 289.74734, 11.825806, 530.043)
+
+[node name="Булыги9" parent="." instance=ExtResource("23_d13ii")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 297.81958, 11.580482, 532.8005)
+
+[node name="Булыги10" parent="." instance=ExtResource("32_ytvxa")]
+transform = Transform3D(1.9318516, 0, 0.5176381, 0, 2, 0, -0.5176381, 0, 1.9318516, 301.14362, 0.9201546, 529.3664)
+
+[connection signal="body_entered" from="кастыль/Area3D" to="кастыль" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="кастыль/Area3D" to="кастыль" method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="WorldEnvironment/DirectionalLight3D/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="WorldEnvironment/DirectionalLight3D/fogChanceTimer" to="." method="_on_fog_chance_timer_timeout"]

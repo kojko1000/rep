@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvha3vwye1t4y"]
+
+[ext_resource type="PackedScene" uid="uid://bp8mno2j6vts" path="res://dangen/ramp.glb" id="1_bf15s"]
+
+[node name="ramp" instance=ExtResource("1_bf15s")]
+
+[node name="StaticBody3D" parent="Cube_004" index="0"]
+collision_layer = 3
+collision_mask = 3
